@@ -1,0 +1,92 @@
+{{! Maintainers - Brian Quinn, Sarveshwar Gavhane}}
+<div class="narrative-inner component-inner" role="region" aria-label="{{_globals._components._narrative.ariaRegion}}">
+    {{> component this}}
+    <div class="narrative-widget component-widget {{#if _hasNavigationInTextArea}}narrative-text-controls{{/if}}">
+        <div class="narrative-content {{#if _isPartOfVerticalBlockSlider}}display-none {{/if}}">
+            <div class="narrative-content-inner">
+                {{#each _items}}
+                <div class="narrative-content-item">
+                    <div class="narrative-content-title">
+                        <div class="narrative-content-title-inner accessible-text-block h5" role="heading" aria-level="5" tabindex="0">
+                            {{{title}}}
+                        </div>
+                    </div>
+                    <div class="narrative-content-body">
+                        <div>
+                            {{#if bodySrc}}
+                            <img src="{{bodySrc}}" tabindex="0"/>
+                            {{/if}}
+                        </div>
+                        {{#if body}}
+                        <div class="narrative-content-body-inner">
+                            {{{a11y_text body}}}
+                        </div>
+                        {{/if}}
+                    </div>
+                </div>
+                {{/each}}
+                <div class="narrative-controls-container clearfix">
+                    <div class="narrative-indicators">
+                        {{#each _items}}
+                        <div class="narrative-progress component-item-color component-item-border"></div>
+                        {{/each}}
+                    </div>
+                    <button class="base narrative-controls narrative-control-left" role="button" aria-label="{{_globals._accessibility._ariaLabels.previous}}">
+                    <div class="icon icon-controls-left"></div>
+                    </button>
+                    <button class="base narrative-controls narrative-control-right" role="button" aria-label="{{_globals._accessibility._ariaLabels.next}}">
+                    <div class="icon icon-controls-right"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="narrative-strapline">
+            <div class="narrative-strapline-header">
+                <div class="narrative-strapline-header-inner clearfix">
+                    <div></div>
+                    {{#each _items}}
+                    <button role="button" class="base narrative-strapline-title" aria-label="{{{strapline}}}">
+                    <div class="narrative-strapline-title-inner accessible-text-block h5">
+                        {{{strapline}}}
+                    </div>
+                    <div class="icon icon-plus"></div>
+                    <div class="focus-rect"></div>
+                    </button>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        <div class="narrative-slide-container" {{#if _isPartOfVerticalBlockSlider}} style="float: right;" {{/if}}>
+            <button class="base narrative-controls narrative-control-left" role="button" aria-label="{{_globals._accessibility._ariaLabels.previous}}">
+            <div class="icon icon-controls-left"></div>
+            </button>
+            <button class="base narrative-controls narrative-control-right" role="button" aria-label="{{_globals._accessibility._ariaLabels.next}}">
+            <div class="icon icon-controls-right"></div>
+            </button>
+            <div class="narrative-slider clearfix">
+                {{#each _items}}
+                <div class="narrative-slider-graphic {{#if visited}}visited{{/if}}">
+                    {{#if _iframe.src}}
+                    {{#if ../../_isDesktop}}
+                    <div class="scroll-wrapper">
+                        <iframe name='narrative-frame' scrolling="no" class="narrative-frame scale" src="{{_iframe.src}}" style="width:{{_iframe._width}}px; height:{{_iframe._height}}px;">
+                        </iframe>
+                    </div>
+                    {{else}}
+                    <img src="{{_graphic.src}}" alt="{{_graphic.alt}}" tabindex="0"/>
+                    {{/if}}
+                    {{else}}
+                    <img src="{{_graphic.src}}" alt="{{_graphic.alt}}" tabindex="0"/>
+                    {{/if}}
+                </div>
+                {{/each}}
+            </div>
+            <div class="narrative-indicators">
+                {{#each _items}}
+                <div class="narrative-progress component-item-color component-item-border"></div>
+                {{/each}}
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

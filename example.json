@@ -1,0 +1,64 @@
+  {
+    "_id": "c-160",
+    "_parentId": "b-120",
+   "_classes": "",
+    "_type": "component",
+    "_layout": "full",
+    "_component": "narrative",
+    "title": "Narrative",
+    "displayTitle": "Narrative",
+    "body": "This is optional body text. Select the forward arrows to move through the narrative on a desktop, or swipe the images and select the plus icons to do so on mobile.",
+    "instruction": "",
+    "_hasNavigationInTextArea": false,
+    "mobileInstruction": "This is optional instruction text that will be shown when viewed on mobile.",
+    "_setCompletionOn": "allItems",
+    "_shouldScale": true,
+    "_isPartOfVerticalBlockSlider":false,
+    "_items": [
+      {
+        "title": "Narrative stage 1 title",
+        "body": "If viewing on <a href='http://www.google.com' target='_blank'> desktop or tablet,On mobile,</a> you’ll need to select the plus icon to reveal this text <br>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.These <a href='http://www.google.com' target='_blank'>presentation components</a> can be structured in any way to help you create learning experiences that meet the needs of your learners.",
+        "bodySrc": "",
+        "_graphic": {
+          "src": "course/en/images/87803930.jpg",
+          "alt": "First graphic"
+        },
+        "_iframe": {
+          "src": "course/en/edge/LinearAnimation_withCode/LinearAnimation_withCode.html",
+          "_width": 1200,
+          "_height": 660
+        },
+        "strapline": "Here is the first..."
+      },
+      {
+        "title": "Narrative stage 2 title",
+        "body": "These components can be structured in any way to help you create learning experiences that meet the needs of your learners.These presentation components can be structured in any way to help you create learning experiences that meet the needs of your learners.",
+        "bodySrc": "course/en/images/accordion_full_width.jpg",
+        "_graphic": {
+          "src": "course/en/images/87803930.jpg",
+          "alt": "Second graphic"
+        },
+        "_iframe": {
+          "src": "course/en/edge/LinearAnimation_withCode/LinearAnimation_withCode.html",
+          "_width": 1200,
+          "_height": 660
+        },
+        "strapline": "Now comes the second..."
+      },
+      {
+        "title": "Narrative stage 3 title",
+        "body": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. These presentation components can be structured in any way to help you create learning experiences that meet the needs of your learners.",
+        "bodySrc": "course/en/images/accordion_full_width.jpg",
+        "_graphic": {
+          "src": "course/en/images/MC1.jpg",
+          "alt": "Third graphic"
+        },
+        "_iframe": {
+          "src": "course/en/edge/LinearAnimation_withCode/LinearAnimation_withCode.html",
+          "_width": 1200,
+          "_height": 660
+        },
+        "strapline": "Third here!"
+      }
+    ]
+  }
