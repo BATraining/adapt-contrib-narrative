@@ -73,10 +73,10 @@
                         </iframe>
                     </div>
                     {{else}}
-                    <img src="{{_graphic.src}}" alt="{{_graphic.alt}}" tabindex="0"/>
+                    <img src="{{_graphic.src}}" {{#if _graphic.alt}}aria-label="{{_graphic.alt}}" tabindex="0"{{else}}class="a11y-ignore" aria-hidden="true" tabindex="-1"{{/if}}/>
                     {{/if}}
                     {{else}}
-                    <img src="{{_graphic.src}}" alt="{{_graphic.alt}}" tabindex="0"/>
+                    <img src="{{_graphic.src}}" {{#if _graphic.alt}}aria-label="{{_graphic.alt}}" tabindex="0"{{else}}class="a11y-ignore" aria-hidden="true" tabindex="-1"{{/if}}/>
                     {{/if}}
                 </div>
                 {{/each}}
