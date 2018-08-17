@@ -1,151 +1,131 @@
-.narrative-component {
-    a {
-        font-weight: @body-text-font-weight;
-        text-decoration: underline;
-        color: #005cbf;
-        &:hover {
-            color: #551a8b;
+html.size-large .narrative-component {
+    .narrative-slide-container {
+        width: 60%;
+        margin-right: 3%;
+        float: left;
+        .dir-rtl & {
+            margin-right: inherit;
+            margin-left: 3%;
+            float: right;
         }
     }
-    &.desktop {
-        .narrative-slide-container {
-            float: left;
-            width: 53%;
-            margin-right: 3%;
-            .dir-rtl & {
-                float: right;
-                margin-right: inherit;
-                margin-left: 3%;
-            }
-            html, body {
-                width: 100%;
-            }
-        }
-        .narrative-slider-graphic {
-            width: 53%;
-            margin-right: 0;
-            max-height: 720px;
-            overflow: hidden;
 
-            .scroll-wrapper {
-                overflow: hidden;
-                width: 100%;
-                text-align: center;
+    .narrative-slider-graphic {
+        margin-right: 0;
+        width:60%;
+    }
 
-                iframe {
-                    width: 100%;
-                    height: 100%;
-                    vertical-align: top;
-                    border: none;
-                    &.scale {
-                        -webkit-transform-origin: 0 0;
-                        -moz-transform-origin: 0 0;
-                        -ms-transform-origin: 0 0;
-                        -o-transform-origin: 0 0;
-                        transform-origin: 0 0;
-                    }
-                }
-            }
-        }
-        .narrative-strapline {
+    .narrative-strapline {
+        display:none;
+    }
+
+    .narrative-content-inner {
+        .narrative-controls {
+            position: static;
             display: none;
+            margin-top: 0px;
+            margin-bottom: 10px;
+            width: auto;
+            height: auto;
+            padding: 8px;
+            .icon {
+                margin: 0px;
+            }
         }
-        .narrative-content-inner {
-            .narrative-controls {
-                position: static;
+        .narrative-indicators {
+            display: none;
+            position: relative;
+            top: -4px;
+        }
+        .narrative-progress {
+            background-color: @item-color;
+            &.selected {
+                background-color: @item-color-selected;
+            }
+        }
+        .narrative-content-item.narrative-hidden {
                 display: none;
-                width: auto;
-                height: auto;
-                margin-top: 0;
-                margin-bottom: 10px;
-                padding: 8px;
-                .icon {
-                    margin: 0;
+        }
+    }
+
+    .narrative-text-controls {
+        .narrative-content-inner {
+            position: relative;
+            .narrative-controls-container {
+                position: absolute;
+                width: 100%;
+                left: 0px;
+                top: 10px;
+                display: block;
+            }
+            .narrative-controls {
+                margin-bottom: 0px;
+                display: inline-block;
+                &.narrative-hidden {
+                    visibility: hidden;
                 }
+            }
+            .narrative-control-left {
+                float:left;
+            }
+            .narrative-control-right {
+                float: right;
             }
             .narrative-indicators {
-                position: relative;
-                top: -4px;
-                display: none;
-            }
-            .narrative-progress {
-                background-color: @item-color;
-                &.selected {
-                    background-color: @item-color-selected;
-                }
+                display: inline-block;
+                width: auto;
+                position: absolute;
+                margin-top: 10px;
+                top: 0px;
+                left: 50%;
             }
         }
-        .narrative-text-controls {
-            .narrative-content-inner {
-                position: relative;
-                .narrative-controls-container {
-                    position: absolute;
-                    top: 10px;
-                    left: 0;
-                    display: block;
-                    width: 100%;
-                }
-                .narrative-controls {
-                    display: inline-block;
-                    margin-bottom: 0;
-                    &.narrative-hidden {
-                        display: none;
-                    }
-                }
-                .narrative-control-left {
-                    float: left;
-                }
-                .narrative-control-right {
-                    float: right;
-                }
-                .narrative-indicators {
-                    position: absolute;
-                    top: 0;
-                    left: 50%;
-                    display: inline-block;
-                    width: auto;
-                    margin-top: 10px;
-                }
-                .narrative-content-item {
-                    padding-top: 36px;
-                }
+
+        .narrative-slide-container {
+            .narrative-controls {
+                display: none;
             }
-            .narrative-slide-container {
-                .narrative-controls {
-                    display: none;
-                }
-                .narrative-indicators {
-                    display: none;
-                }
+            .narrative-indicators {
+                display: none;
             }
         }
     }
+}
+
+
+.narrative-component {
+
     .narrative-content {
-        float: right;
-        width: 43%;
-        color: @item-text-color;
+        width: 36%;
         background-color: @item-color;
+        color: @item-text-color;
+        float: right;
         .dir-rtl & {
             float: left;
         }
     }
-    .narrative-content-body-inner {
-        padding-top: 20px;
+
+    .narrative-content-inner {
+        padding:20px;
     }
-    &.mobile {
+
         .narrative-content {
-            display: none;
+            .size-small &,
+            .size-medium & {
+            display:none;
         }
     }
+
     .narrative-slide-container {
-        position: relative;
-        float: left;
-        overflow-x: hidden;
         width: 100%;
+        position: relative;
+        overflow-x: hidden;
+        float: left;
         .dir-rtl & {
             float: right;
         }
     }
+
     .narrative-slider-graphic {
         position: relative;
         float: left;
@@ -153,34 +133,33 @@
             float: right;
         }
     }
-    .narrative-item-title {
-        position: relative;
-        display: block;
-    }
+
     .narrative-indicators {
         text-align: center;
     }
+
     .narrative-progress {
-        display: inline-block;
         width: (@icon-size/2);
         height: (@icon-size/2);
+        display: inline-block;
         margin: 1px;
-        cursor: pointer;
-        border: inherit;
+        border:inherit;
         border-radius: 50%;
         background-color: darken(@component-background-color, 10%);
+        cursor: pointer;
         &.selected {
             background-color: @item-color;
         }
     }
+
     .narrative-controls {
-        position: absolute;
-        z-index: 10;
-        top: 50%;
         display: block;
         width: (@icon-size*2);
         height: (@icon-size*2);
+        position: absolute;
+        top: 50%;
         margin-top: -(@icon-size*2);
+        z-index: 10;
         text-decoration: none;
         background-color: @item-color;
         .no-touch &:hover {
@@ -194,93 +173,104 @@
             color: @item-text-color;
         }
         &.narrative-hidden {
-            display: none;
+            visibility: hidden;
         }
     }
+
     .narrative-control-left {
-        left: 0 !important;
+        left: 0;
+
         .dir-rtl & {
-            right: 0;
-            left: inherit;
+        	left: inherit;
+        	right: 0;
         }
     }
+
     .narrative-control-right {
-        right: 0 !important;
+        right: 0;
+
         .dir-rtl & {
-            right: inherit;
             left: 0;
+            right: inherit;
         }
     }
+
     .narrative-strapline {
-        position: relative;
         height: auto;
-    }
-    .narrative-strapline-header {
         position: relative;
-        overflow: hidden;
     }
+
+    .narrative-strapline-header {
+        overflow: hidden;
+        position: relative;
+    }
+
     .narrative-strapline-header-inner {
         position: relative;
     }
+
     .narrative-strapline-title {
         position: relative;
         float: left;
         text-decoration: none;
-        color: @button-text-color;
         background-color: @button-color;
+        color: @button-text-color;
         .dir-rtl & {
             float: right;
         }
         .icon {
+            display: block;
             position: absolute;
             top: 0;
             right: 0;
-            display: block;
             .dir-rtl & {
                 right: inherit;
                 left: 0;
             }
         }
         .no-touch &:hover {
-            color: @button-text-color-hover;
             background-color: @button-color-hover;
+            color: @button-text-color-hover;
             .icon {
                 color: @button-text-color-hover;
             }
+
         }
         .focus-rect {
             position: absolute;
-            top: extract(@focus-outline, 1);
             right: extract(@focus-outline, 1);
             bottom: extract(@focus-outline, 1);
+            top: extract(@focus-outline, 1);
             left: extract(@focus-outline, 1);
         }
     }
+
     .narrative-strapline-title-inner {
-        line-height: (@item-padding-top + @item-padding-bottom + @icon-size);
-        overflow: hidden;
         height: (@item-padding-top + @item-padding-bottom + @icon-size);
-        padding-right: (@item-padding-left + @item-padding-right + @icon-size);
+        line-height: (@item-padding-top + @item-padding-bottom + @icon-size);
         padding-left: (@icon-size/2);
-        white-space: nowrap;
+        padding-right: (@item-padding-left + @item-padding-right + @icon-size);
         text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
         .dir-rtl & {
             padding-right: (@icon-size/2);
             padding-left: (@item-padding-left + @item-padding-right + @icon-size);
         }
     }
+
     .narrative-popup-open {
-        position: absolute;
-        z-index: 5;
-        top: 0;
-        right: 0;
         display: block;
+        position: absolute;
+        top:0;
+        right:0;
         padding: @item-padding;
-        text-decoration: none;
         background-color: @background-color-inverted;
+        text-decoration: none;
+        z-index: 5;
         .dir-rtl & {
-            right: inherit;
-            left: 0;
+            right:inherit;
+            left:0;
         }
         .icon {
             color: @foreground-color-inverted;
@@ -289,19 +279,35 @@
             }
         }
     }
+
+    .graphic-attribution {
+        font-size:0.75em;
+        line-height: 1em;
+    }
+
     .narrative-hidden {
-        display: none;
+        visibility: hidden;
+    }
+
+    &:not(.disable-animation) {
+        .narrative-slider,
+        .narrative-strapline-header-inner {
+            transition: transform 400ms ease-in-out;
+        }
     }
 }
 
+
 html.accessibility {
+
     .narrative-control-left:focus, .narrative-control-left.focus {
         left: extract(@focus-outline, 1);
         .dir-rtl & {
-            right: extract(@focus-outline, 1);
             left: inherit;
+            right: extract(@focus-outline, 1);
         }
     }
+
     .narrative-control-right:focus, .narrative-control-right.focus {
         right: extract(@focus-outline, 1);
         .dir-rtl & {
@@ -309,9 +315,8 @@ html.accessibility {
             left: extract(@focus-outline, 1);
         }
     }
-    &.no-touch {
-        .narrative-strapline-title:focus .focus-rect {
-            outline: @focus-outline;
-        }
+
+    .narrative-strapline-title:focus .focus-rect {
+        outline: @focus-outline;
     }
 }
