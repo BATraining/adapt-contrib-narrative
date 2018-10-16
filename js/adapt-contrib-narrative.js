@@ -270,6 +270,13 @@ define(function(require) {
                 currentItem.visited = true;
             }
 
+            console.log(this.$('.narrative-slide-container .narrative-progress').eq(stage));
+            if (this.$('.narrative-slide-container .narrative-progress').eq(stage).hasClass('visited')) {
+                this.$('.narrative-slide-container .narrative-progress').eq(stage).addClass('already-visited');
+            } else {
+                this.$('.narrative-slide-container .narrative-progress').eq(stage).addClass('visited');
+            }
+
             this.$('.narrative-progress:visible').removeClass('selected').eq(stage).addClass('selected');
             this.$('.narrative-slider-graphic').children('.controls').a11y_cntrl_enabled(false);
             this.$('.narrative-slider-graphic').eq(stage).children('.controls').a11y_cntrl_enabled(true);
