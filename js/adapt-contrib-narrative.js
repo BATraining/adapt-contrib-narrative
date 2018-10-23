@@ -270,7 +270,6 @@ define(function(require) {
                 currentItem.visited = true;
             }
 
-            console.log(this.$('.narrative-slide-container .narrative-progress').eq(stage));
             if (this.$('.narrative-slide-container .narrative-progress').eq(stage).hasClass('visited')) {
                 this.$('.narrative-slide-container .narrative-progress').eq(stage).addClass('already-visited');
             } else {
