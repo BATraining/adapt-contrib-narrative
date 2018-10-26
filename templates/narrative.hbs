@@ -7,7 +7,7 @@
                 {{#each _items}}
                 <div class="narrative-content-item">
                     <div class="narrative-content-title">
-                        <div class="narrative-content-title-inner accessible-text-block h5" role="heading" aria-level="5" tabindex="0">
+                        <div class="narrative-content-title-inner accessible-text-block h5 {{{label_id}}}" role="heading" aria-level="5" tabindex="0">
                             {{{title}}}
                         </div>
                     </div>
@@ -25,7 +25,8 @@
                     </div>
                 </div>
                 {{/each}}
-                <div class="narrative-controls-container clearfix">
+                {{#if _hasNavigationInTextArea}}
+                <div class="narrative-controls-container">
                     <div class="narrative-indicators">
                         {{#each _items}}
                         <div class="narrative-progress component-item-color component-item-border"></div>
@@ -38,11 +39,12 @@
                     <div class="icon icon-controls-right"></div>
                     </button>
                 </div>
+                {{/if}}
             </div>
         </div>
         <div class="narrative-strapline">
             <div class="narrative-strapline-header">
-                <div class="narrative-strapline-header-inner clearfix">
+                <div class="narrative-strapline-header-inner">
                     <div></div>
                     {{#each _items}}
                     <button role="button" class="base narrative-strapline-title" aria-label="{{{strapline}}}">
@@ -63,7 +65,7 @@
             <button class="base narrative-controls narrative-control-right" role="button" aria-label="{{_globals._accessibility._ariaLabels.next}}">
             <div class="icon icon-controls-right"></div>
             </button>
-            <div class="narrative-slider clearfix">
+            <div class="narrative-slider ">
                 {{#each _items}}
                 <div class="narrative-slider-graphic {{#if visited}}visited{{/if}}">
                     {{#if _iframe.src}}
@@ -87,6 +89,5 @@
                 {{/each}}
             </div>
         </div>
-        <div class="clearfix"></div>
     </div>
 </div>
