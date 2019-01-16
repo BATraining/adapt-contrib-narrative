@@ -217,10 +217,12 @@ define(function(require) {
         },
 
         replaceInstructions: function() {
-            if (Adapt.device.screenSize === 'large') {
-                this.$('.narrative-instruction-inner').html(this.model.get('instruction')).a11y_text();
-            } else if (this.model.get('mobileInstruction') && !this.model.get('_wasHotgraphic')) {
-                this.$('.narrative-instruction-inner').html(this.model.get('mobileInstruction')).a11y_text();
+            if (Adapt.course.get('_globals').preview_type !== 'ilt') {
+                if (Adapt.device.screenSize === 'large') {
+                    this.$('.narrative-instruction-inner').html(this.model.get('instruction')).a11y_text();
+                } else if (this.model.get('mobileInstruction') && !this.model.get('_wasHotgraphic')) {
+                    this.$('.narrative-instruction-inner').html(this.model.get('mobileInstruction')).a11y_text();
+                }
             }
         },
 
@@ -242,7 +244,9 @@ define(function(require) {
             var model = this.model;
             model.set('_component', 'hotgraphic');
             model.set('body', model.get('originalBody'));
-            model.set('instruction', model.get('originalInstruction'));
+            if (Adapt.course.get('_globals').preview_type !== 'ilt'){
+                model.set('instruction', model.get('originalInstruction'));
+            }
             return model;
         },
 
