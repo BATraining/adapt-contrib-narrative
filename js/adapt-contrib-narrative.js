@@ -223,6 +223,8 @@ define(function(require) {
                 } else if (this.model.get('mobileInstruction') && !this.model.get('_wasHotgraphic')) {
                     this.$('.narrative-instruction-inner').html(this.model.get('mobileInstruction')).a11y_text();
                 }
+            } else {
+                this.$('.narrative-instruction-inner').html('');
             }
         },
 
