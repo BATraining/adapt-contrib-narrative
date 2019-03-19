@@ -103,9 +103,7 @@ define(function(require) {
             }
             this.calculateWidths();
 
-            if (Adapt.device.screenSize !== 'large' && !this.model.get('_wasHotgraphic')) {
-                this.replaceInstructions();
-            }
+            this.replaceInstructions();
             this.setupEventListeners();
 
             // if hasNavigationInTextArea set margin left
