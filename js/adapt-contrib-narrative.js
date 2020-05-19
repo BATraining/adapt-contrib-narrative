@@ -15,6 +15,7 @@ define(function(require) {
             this.listenTo(Adapt, 'device:changed', this.reRender, this);
             this.listenTo(Adapt, 'device:resize', this.resizeControl, this);
             this.listenTo(Adapt, 'notify:closed', this.closeNotify, this);
+            this.listenTo(Adapt, `componentAutoPlay::${this.model.get('_id')}:ended`, this.evaluateCompletion, this);
             this.setDeviceSize();
             // Checks to see if the narrative should be reset on revisit
             this.checkIfResetOnRevisit();
@@ -360,14 +361,18 @@ define(function(require) {
             return this.model.get('_items')[index];
         },
 
-        getVisitedItems: function() {
+        getCompletedItems: function() {
             return _.filter(this.model.get('_items'), function(item) {
-                return item.visited;
+                return item.visited && item.audioCompleted;
             });
         },
 
+        itemsAreCompleted: function() {
+            return this.getCompletedItems().length === this.model.get('_items').length
+        },
+
         evaluateCompletion: function() {
-            if (this.getVisitedItems().length === this.model.get('_items').length) {
+            if (this.itemsAreCompleted()) {
                 this.trigger('allItems');
             }
         },
