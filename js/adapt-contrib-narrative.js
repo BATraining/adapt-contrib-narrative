@@ -4,6 +4,7 @@ define(function(require) {
     var Adapt = require('coreJS/adapt');
 
     var Narrative = ComponentView.extend({
+        forcedAudio: false,
 
         events: {
             'click .narrative-strapline-title': 'openPopup',
@@ -19,6 +20,7 @@ define(function(require) {
             this.setDeviceSize();
             // Checks to see if the narrative should be reset on revisit
             this.checkIfResetOnRevisit();
+            this.checkForcedAudio();
             this.model.set({
                 'AdobeEdges': [],
                 'edgeCompositionIds': [],
@@ -363,7 +365,11 @@ define(function(require) {
 
         getCompletedItems: function() {
             return _.filter(this.model.get('_items'), function(item) {
-                return item.visited && item.audioCompleted;
+                if (this.forcedAudio) {
+                    return item.visited && item.audioCompleted;
+                } else {
+                    return item.visited;
+                }
             });
         },
 
@@ -467,6 +473,14 @@ define(function(require) {
                 this.on(this.completionEvent, _.bind(this.onCompletion, this));
             }
             this.$('.component-widget').on('inview', _.bind(this.onInview, this));
+        },
+
+        checkForcedAudio: function () {
+            var _forceAudioConfig = Adapt.articles.models[0].get('_forceAudio');
+
+            this.forcedAudio = _forceAudioConfig &&
+                _forceAudioConfig.hasOwnProperty('_isEnabled') &&
+                _forceAudioConfig._isEnabled;
         }
 
     });
